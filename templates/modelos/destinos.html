@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block titulo %}
+    Destinos
+{% endblock titulo %}
+
+
+{% block contenido %}
+
+<h2 class="color5">Destinos</h2>
+<div class="articulos unaColumna">
+    <article>
+        {% if mensaje %}
+            <h3>{{ mensaje }}</h3>
+        {% endif %}
+        <table>
+            <thead>
+                <tr>
+                    <td class="bold">Destino</td>
+                    <td class="bold">Ubicación</td>
+                </tr>
+            </thead>
+            <tbody>
+            {% for destino in destinos %}
+                <tr>
+                    <td><a href="{{ url_for('ver_detalle', id=destino.id, tipo='destino') }}" title="Ver detalle">{{ destino.nombre }}</a></td>
+                    <td>{{ destino.ubicacion }}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </article>
+    <div class="crear">
+        <a href="{{ url_for('crear', tipo='destino') }}" class="menuSPA color2">Crear destino</a>
+    </div>
+</div>
+
+{% endblock contenido %}
