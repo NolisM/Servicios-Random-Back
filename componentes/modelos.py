@@ -6,7 +6,7 @@ from auxiliares.cifrado import encriptar
 class Destino(Tabla):
     tabla = 'destino'
     conexion = conexion
-    campos = ('id', 'nombre', 'ubicacion')
+    campos = ('id', 'nombre', 'ubicacion', 'imagen')
     
     def __init__(self, *args, de_bbdd=False):
         super().crear(args, de_bbdd)
@@ -14,7 +14,7 @@ class Destino(Tabla):
 class Consulta(Tabla):
     tabla = 'consulta'
     conexion = conexion
-    campos = ('id', 'nombre', 'apellido', 'email', 'telefono', 'mensaje', 'tipo', 'estado')
+    campos = ('id', 'nombre', 'apellido', 'email', 'telefono', 'mensaje', 'tipo', 'estado', 'suscripcion')
     
     def __init__(self, *args, de_bbdd=False):
         super().crear(args, de_bbdd)

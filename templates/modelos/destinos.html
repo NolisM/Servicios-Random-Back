@@ -18,6 +18,7 @@
                 <tr>
                     <td class="bold">Destino</td>
                     <td class="bold">Ubicación</td>
+                    <td class="bold">Imagen</td>
                 </tr>
             </thead>
             <tbody>
@@ -25,6 +26,7 @@
                 <tr>
                     <td><a href="{{ url_for('ver_detalle', id=destino.id, tipo='destino') }}" title="Ver detalle">{{ destino.nombre }}</a></td>
                     <td>{{ destino.ubicacion }}</td>
+                    <td>{{ destino.imagen }}</td>
                 </tr>
             {% endfor %}
             </tbody>
