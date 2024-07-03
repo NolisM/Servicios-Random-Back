@@ -5,24 +5,20 @@ USE tourfy_bd;
 
 CREATE TABLE destinos (
     id INT NOT NULL AUTO_INCREMENT ,
-    customer_id INT NOT NULL,
-    name VARCHAR(100) NOT NULL,
-    customer_name VARCHAR(100) NOT NULL,
+    nombre VARCHAR(100) NOT NULL,
     ubicacion VARCHAR(255) NOT NULL,
-    icono VARCHAR(255) NOT NULL,
+    url_img VARCHAR(255) NOT NULL,
     PRIMARY KEY (id)
 );
 
-CREATE TABLE consultas (
-    id INT NOT NULL AUTO_INCREMENT,
-    order_id INT NOT NULL ,
-    name VARCHAR(50) NOT NULL,
-    lastName VARCHAR(50) NOT NULL,
-    email VARCHAR(50) NOT NULL,
-    telefono VARCHAR(50),
-    mensaje VARCHAR(1000) NOT NULL,
-    type VARCHAR(50) NOT NULL,
-    state BOOLEAN NOT NULL,
-    PRIMARY KEY (id)
+CREATE TABLE consulta (
+   id int(11) NOT NULL AUTO_INCREMENT,
+   nombre varchar(50) DEFAULT NULL,
+   apellido varchar(50) DEFAULT NULL,
+   email varchar(50) DEFAULT NULL,
+   telefono varchar(50) DEFAULT NULL,
+   mensaje varchar(1000) DEFAULT NULL,
+   tipo varchar(50) DEFAULT NULL,
+   estado tinyint(1) NOT NULL,
+   PRIMARY KEY (id)
 );
-
