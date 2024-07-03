@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Tourfy Inc. - Todos los derechos reservados (?)" />
+    <meta name="author" content="Tourfy Inc."/>
+    <meta name="keywords" content="educación, desarrollo web, frontend, backend, API-REST, MVT, MVC">
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='./icon/laptop-code-solid.svg') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='./css/estilos.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='./css/fuentes.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='./css/colores.css') }}">
+    <title>
+        {% block titulo %}
+        Administración Tourfy
+        {% endblock titulo %}
+    </title>
+</head>
+<body class="color3">
+    <header class="color1">
+        <h1><a href="{{ url_for('inicio') }}">Administración Tourfy</a></h1>
+        <nav>
+            <img class="menuBurger" src="{{ url_for('static', filename='./media/icon/bars-solid.svg') }}" alt="Ménu para dispositivos móviles" title="Menú">
+            <div id="menuPpal" class="oculto visibleH">
+                <a href="{{ url_for('destinos') }}" class="menuSPA color1">Destinos</a>
+                <a href="{{ url_for('consultas') }}" class="menuSPA color1">Consultas</a>
+            </div>
+        </nav>
+    </header>
+    <main class="color3">
+        <section id="contenidoSPA">
+            <!-- Contenido dinámico -->
+            {% block contenido %}
+            <h2 class="color5">Acerca de Tourfy</h2>
+            <div class="articulos unaColumna">
+                <article>
+                    <p>Este sitio es un proyecto para el curso de <b>Python Fullstack</b> del programa Codo a Codo.</p>
+                    <p>Información disponible y funcionalidad:</p>
+                    <ul>
+                        <li>- Sitio simil «back office»;</li>
+                        <li>- API pública y con conexión para el frontend desarrollado.</li>
+                    </ul>
+                </article>
+            </div>
+            {% endblock contenido %}
+        </section>
+    </main>
+    <div>
+        <a href="https://github.com/" target="_blank"><img src="{{ url_for ('static', filename='./media/img/enlacesIco/GitHub.png') }}" class="logoFijo" alt="Link a código fuente" title="Ver código fuente"></a>
+    </div>
+    <footer class="color1">
+        <p>Sitio sin licencia - 2024</p>
+    </footer>
+
+    {% block js %}
+    
+    <script src="{{ url_for('static', filename='./js/main.js') }}" type="module"></script>
+    
+    {% endblock js %}
+</body>
+</html>

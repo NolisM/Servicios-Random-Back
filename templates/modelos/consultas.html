@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% block titulo %}
+    Consultas
+{% endblock titulo %}
+
+
+{% block contenido %}
+
+<h2 class="color5">Consultas</h2>
+<div class="articulos unaColumna">
+    <article>
+        {% if mensaje %}
+            <h3>{{ mensaje }}</h3>
+        {% endif %}
+        <table>
+            <thead>
+                <tr>
+                    <td class="bold">Nombre</td>
+                    <td class="bold">Apellido</td>
+                    <td class="bold">Email</td>
+                    <td class="bold">Teléfono</td>
+                    <td class="bold">Mensaje</td>
+                    <td class="bold">Tipo</td>
+                    <td class="bold">Estado</td>
+                </tr>
+            </thead>
+            <tbody>
+            {% for consulta in consultas %}
+                <tr>
+                    <td><a href="{{ url_for('ver_detalle', id=consulta.id, tipo='consulta') }}" title="Ver detalle">{{ consulta.nombre }}</a></td>
+                    <td>{{ consulta.apellido }}</td>
+                    <td>{{ consulta.email }}</td>
+                    <td>{{ consulta.telefono }}</td>
+                    <td>{{ consulta.mensaje }}</td>
+                    <td>{{ consulta.tipo }}</td>
+                    <td>{{ consulta.estado }}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </article>
+    <div class="crear">
+        <a href="{{ url_for('crear', tipo='consulta') }}" class="menuSPA color2">Crear consulta</a>
+    </div>
+</div>
+
+{% endblock contenido %}
