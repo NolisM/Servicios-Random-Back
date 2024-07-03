@@ -1,5 +1,3 @@
-CREATE DATABASE  IF NOT EXISTS `tourfy` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci */;
-USE `tourfy`;
 -- MySQL dump 10.13  Distrib 8.0.36, for Win64 (x86_64)
 --
 -- Host: 127.0.0.1    Database: tourfy
@@ -33,8 +31,9 @@ CREATE TABLE `consulta` (
   `mensaje` varchar(1000) DEFAULT NULL,
   `tipo` varchar(50) DEFAULT NULL,
   `estado` tinyint(1) NOT NULL,
+  `suscripcion` tinyint(1) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -43,7 +42,7 @@ CREATE TABLE `consulta` (
 
 LOCK TABLES `consulta` WRITE;
 /*!40000 ALTER TABLE `consulta` DISABLE KEYS */;
-INSERT INTO `consulta` VALUES (1,'Pepe','Argento','pepeargento@gmail.com','+5491122223333','Hola, queria saber acerca de...','1',1),(2,'Toribio','Sanchez','eltori@gmail.com','+5491144445555','Hola, quiero felicitarlos por el sitio web...','1',1),(3,'Marcela','Marolio','marcelamarolio@gmail.com','+5493513334444','Me gustaría reservar para ver OVNIS.','2',1);
+INSERT INTO `consulta` VALUES (1,'Pepe','Argento','pepeargento@gmail.com','+5491122223333','Hola, queria saber acerca de...','consulta',1,NULL),(2,'Toribio','Sanchez','eltori@gmail.com','+5491144445555','Hola, quiero felicitarlos por el sitio web...','consulta',1,NULL),(3,'Marcela','Marolio','marcelamarolio@gmail.com','+5493513334444','Me gustaría reservar para ver OVNIS.','reserva',1,NULL),(4,'Aylen','St','aylenstutz2016@gmail.com','3517030939','Hola, quisiera saber qué sitios debo visitar si o si en dos días en Cba capital ','consulta',1,NULL),(5,'a','','','','','',0,NULL);
 /*!40000 ALTER TABLE `consulta` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -58,8 +57,9 @@ CREATE TABLE `destino` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `nombre` varchar(50) DEFAULT NULL,
   `ubicacion` varchar(100) DEFAULT NULL,
+  `imagen` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -68,7 +68,7 @@ CREATE TABLE `destino` (
 
 LOCK TABLES `destino` WRITE;
 /*!40000 ALTER TABLE `destino` DISABLE KEYS */;
-INSERT INTO `destino` VALUES (1,'Estancia El Lago','Villa Carlos Paz, Córdoba'),(2,'Restaurante de la Alta','Alta Gracia, Córdoba'),(3,'Cerro Uritorco','Capilla del Monte, Córdoba');
+INSERT INTO `destino` VALUES (1,'Estancia El Lago','Villa Carlos Paz, Córdoba',NULL),(2,'Restaurante de la Alta','Alta Gracia, Córdoba',NULL),(3,'Cerro Uritorco','Capilla del Monte, Córdoba',NULL),(4,'Área Traslasierra','Traslasierra, Córdoba',NULL),(5,'Grabeat','Santiago Derqui 88, X5000, Córdoba','https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0d/6c/6f/d5/grabeat.jpg');
 /*!40000 ALTER TABLE `destino` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -81,4 +81,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-07-01  0:07:25
+-- Dump completed on 2024-07-03 10:18:52
