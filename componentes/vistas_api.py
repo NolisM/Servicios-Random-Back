@@ -42,3 +42,22 @@ def crear_consulta():
         respuesta = {'mensaje': 'no se recibieron datos.'}
 
     return jsonify(respuesta)
+  
+@app.route("/api/consultas", methods=['DELETE'])
+def eliminar_consulta():
+    
+    if request.method == 'DELETE':
+        datos = request.json 
+        print('datos=>', datos)
+        consulta_modif = Consulta.modificar(datos)
+        respuesta = {'mensaje': consulta_modif}
+        
+        if consulta_modif:
+            respuesta = {'mensaje': 'se elimino con exito'}
+        else:
+            respuesta = {'mensaje': 'Algo salió mal!'}
+    
+    else:
+        respuesta = {'mensaje': 'no se recibieron datos.'}
+        
+    return jsonify(respuesta)
