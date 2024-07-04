@@ -55,6 +55,7 @@ def crear_consulta():
             datos['mensaje'],
             datos['tipo'],
             datos['estado'],
+            datos['suscripcion'],
         )
         print('consulta=>', consulta_nueva)
         consulta_nueva = consulta_nueva.guardar_db()
