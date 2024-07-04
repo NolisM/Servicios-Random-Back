@@ -13,11 +13,33 @@ def api_destinos():
     print(datos)
     return jsonify(datos)
 
+@app.route("/api/destinos", methods=['POST'])
+def crear_destino():
+    if request.method == 'POST':
+        datos = request.json
+        destino_nuevo = Destino(
+            datos['nombre'],
+            datos['ubicacion'],
+            datos['imagen'],
+        )
+        destino_nuevo = destino_nuevo.guardar_db()
+        respuesta = {'mensaje': destino_nuevo}
+        
+    else:
+        respuesta = {'mensaje': 'no se recibieron datos.'}
+
+    return jsonify(respuesta)
+
 @app.route("/api/consultas", methods=['GET'])
 def api_consultas():
     consultas = Consulta.obtener()
+    resultado = []
     datos = [consulta.__dict__ for consulta in consultas]
-    return jsonify(datos)
+    print(datos)
+    for item in datos:
+        if(item['estado'] == 1):
+            resultado.append(item)
+    return jsonify(resultado)
 
 @app.route("/api/consultas", methods=['POST'])
 def crear_consulta():
