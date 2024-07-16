@@ -23,12 +23,12 @@ El proyecto está desplegado y disponible en la siguiente URL:https://andresroja
 
 
 # Funcionalidades
-· Crear, modificar o eliminar registros en las tablas de la base de datos (CRUD).
-· Acceder a los endpoints API.
+* Crear, modificar o eliminar registros en las tablas de la base de datos (CRUD).
+* Acceder a los endpoints API.
 
 # Tecnologías Utilizadas
-Flask
-MySQL
+* Flask
+* MySQL
 
 # Autores
 Este proyecto fue desarrollado por Nolis Maldonado, Aylen Stutz y Andres Rojas. Si tienes alguna pregunta o sugerencia, no dudes en ponerte en contacto.
